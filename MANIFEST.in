@@ -1,0 +1,3 @@
+recursive-include src/pydeployment/linux/ *
+recursive-include src/pydeployment/macos/ *
+recursive-include src/pydeployment/windows/ *

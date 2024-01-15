@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pydeployment"
+dynamic = ["version", "dependencies"]
+authors = [
+    {name = "Zev Lee", email = "60147316+zevlee@users.noreply.github.com"},
+]
+description = "Deploy Python projects with ease"
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/pydeployment/pydeployment"
+"Bug Tracker" = "https://github.com/pydeployment/pydeployment/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.dynamic]
+version = {attr = "pydeployment.__version__"}
+dependencies = {file = "requirements.txt"}
+
+[project.scripts]
+pydeploy = "pydeployment.__main__:main"

@@ -1,0 +1,37 @@
+site_name: PyDeployment
+site_url: https://pydeployment.github.io/pydeployment
+site_description: Deploy Python projects with ease.
+site_author: Zev Lee
+repo_url: https://github.com/pydeployment/pydeployment
+
+nav:
+  - Home: index.md
+  - User Guide:
+    - User Guide: user-guide/README.md
+    - Getting Started: user-guide/getting-started.md
+    - Build Options: user-guide/build-options.md
+    - Setting Build Options:
+      - Setting Build Options: user-guide/setting-options/README.md
+      - Using an Environment File: user-guide/setting-options/env-file.md
+      - Using the Command Line: user-guide/setting-options/command-line.md
+      - Using Both: user-guide/setting-options/using-both.md
+    - Advanced Usage:
+      - Advanced Usage: user-guide/advanced/README.md
+      - Package as an Archive File: user-guide/advanced/archive-file.md
+      - Using a Custom Virtual Environment: user-guide/advanced/custom-venv.md
+      - Using a Custom NSIS File: user-guide/advanced/custom-nsis.md
+      - Using a Custom Makensis Binary: user-guide/advanced/custom-makensis.md
+      - macOS Notarization: user-guide/advanced/macos-notarization.md
+      - Using a Custom Appimagetool Binary: user-guide/advanced/custom-appimagetool.md
+      - Passing Arguments to PyInstaller: user-guide/advanced/passing-args-to-pyi.md
+  - About:
+    - Release Notes: about/release-notes.md
+    - Contributing: about/contributing.md
+    - License: about/license.md
+
+extra_css:
+  - css/extra.css
+
+extra:
+  version:
+    provider: mike
