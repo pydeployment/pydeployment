@@ -16,7 +16,7 @@ class ArgParser(ArgumentParser):
         """
         super().__init__(
             prog="pydeploy",
-            description="PyDeployment - Deploy Python projects with ease."
+            description="PyDeployment - Deploy Python projects with ease"
         )
         # PyDeployment version
         self.add_argument(
@@ -57,7 +57,7 @@ class ArgParser(ArgumentParser):
         self.add_argument(
             "-f", "--filename",
             action="store",
-            help="Output filename without version and architecture",
+            help="Output filename",
             dest="FILENAME",
             default=None
         )
