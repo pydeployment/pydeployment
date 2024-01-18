@@ -2,6 +2,8 @@
 
 ---
 
-## Version 1.0.0
+## Version 1.0.1
+* Edit CLI description to reduce confusion
 
-* Initial commit.
+## Version 1.0.0
+* Initial commit
