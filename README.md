@@ -39,8 +39,6 @@ The following examples showcase build systems which utilize PyDeployment to buil
 their applications. These examples are themselves template repositories
 available for use.
 
-*Examples are in progress*
-
-<!-- * [Hello World Tk](https://github.com/zevlee/hello-world-tk) -->
-<!-- * [Hello World GTK](https://github.com/zevlee/hello-world-gtk) -->
-<!-- * [Hello World Qt](https://github.com/zevlee/hello-world-qt) -->
+* [Hello World Tk](https://github.com/zevlee/hello-world-tk)
+* [Hello World GTK](https://github.com/zevlee/hello-world-gtk)
+* [Hello World Qt](https://github.com/zevlee/hello-world-qt)
