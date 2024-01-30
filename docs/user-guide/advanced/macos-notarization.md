@@ -39,7 +39,7 @@ pydeploy myapp.spec -C 'Developer ID Application: Name Here (TEAMIDHERE)'
 Note that this application will still need to be submitted for notarization
 separately.
 
-## Notarize With a Stored Keychain Profile
+## Notarization
 
 If you wish to both sign and notarize your application, you have two options
 for information to include.
@@ -48,31 +48,33 @@ for information to include.
 | :--      | :--      |
 | Name of a stored Keychain Profile | Apple ID, Team ID, and an App-Specific Password |
 
+## Notarize With a Stored Keychain Profile
+
 You will want to create an App Store Connect API key and save it locally on
 your device. Then run the following command to store the Keychain Profile with
 the name of your choice.
 
 ```
-xcrun notarytool store-credentials 'profile-name' -k <key> -d <key-id> -i <issuer>
+xcrun notarytool store-credentials 'profile-name' -k /path/to/api/key -d KEYIDHERE0 -i issuerid-g0es-0ver-h3r3-in0this0spot
 ```
 
-The field `<key>` refers to the path to the App Store Connect API Key. Field
-`<key-id>` refers to the App Store Connect API Key ID, which is usually 10
-alphanumeric characters. The field `<issuer>` refers to the App Store Connect
-Issuer ID, which is in UUID format.
+The `-k` option refers to the path to the App Store Connect API Key. Option
+`-d` refers to the App Store Connect API Key ID, which is usually 10
+alphanumeric characters. The option `-i` refers to the App Store Connect Issuer
+ID, which is in UUID format.
 
 It is possible to store a Keychain Profile using the information in Option 2.
 Use the following command to do so.
 
 ```
-xcrun notarytool store-credentials `keychain-profile-name` --apple-id <apple-id> --team-id <team-id> --password <password>
+xcrun notarytool store-credentials 'profile-name' --apple-id appleid@here.com --team-id TEAMIDHERE --password pass-word-goes-here
 ```
 
-The field `<apple-id>` refers to your Apple ID, an email address. Field
-`<team-id>` refers to your Team ID, which is usually 10 uppercase alphanumeric
-characters. The field `<password>` refers to the an App-Specific Password,
+The option `--apple-id` refers to your Apple ID, an email address. Option
+`--team-id` refers to your Team ID, which is usually 10 uppercase alphanumeric
+characters. The option `--password` refers to the an App-Specific Password,
 which has the format of 16 lowercase alphabetical characters separated into
-groups of 4 characters by hyphens, e.g. `pass-word-goes-here`.
+groups of 4 characters by hyphens.
 
 With your Keychain Profile now stored, you may now use PyDeployment while
 specifying its name.
@@ -90,5 +92,5 @@ If you do not wish to store your information in a Keychain Profile, you can
 feed the information from Option 2 directly to PyDeployment for notarization.
 
 ```
-pydeploy myapp.spec -C 'Developer ID Application: Name Here (TEAMIDHERE)' -A <apple-id> -T <team-id> -P <password>
+pydeploy myapp.spec -C 'Developer ID Application: Name Here (TEAMIDHERE)' -A appleid@here.com -T TEAMIDHERE -P pass-word-goes-here
 ```
