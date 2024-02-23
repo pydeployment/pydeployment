@@ -164,14 +164,13 @@ class BuildMacos(Build):
         :rtype: int
         """
         contents = open(path, "r").read()
-        expr = f"(?<={pattern})(.*)"
-        expr_end = f"{expr}(?=[,)])"
-        with open(path, "w") as file:
-            if contents != sub(expr_end, repl, contents):
-                file.write(sub(expr_end, repl, contents))
-            else:
+        # Matches string between `pattern` at the beginning and anything but a
+        # comma or close parenthesis at the end
+        expr = f"(?<={pattern})(.*)(?<![,)])"
+        if contents != sub(expr, repl, contents):
+            with open(path, "w") as file:
                 file.write(sub(expr, repl, contents))
-            file.close()
+                file.close()
         return 0
 
     def make_app(self) -> str:
