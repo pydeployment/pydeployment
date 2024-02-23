@@ -29,6 +29,7 @@ jobs:
           python3 -m pip install -r requirements_pytest.txt
           python3 -m pip install -e .
       - name: Set up notarization
+        if: github.event_name == 'push'
         env:
           MACOS_CERTIFICATE: ${{ secrets.MACOS_CERTIFICATE }}
           MACOS_CERTIFICATE_PWD: ${{ secrets.MACOS_CERTIFICATE_PWD }}
