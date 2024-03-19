@@ -5,7 +5,7 @@ from subprocess import CalledProcessError, PIPE, Popen
 from typing import Any, Dict, Iterator
 
 # PyDeployment version
-__version__ = "1.0.3"
+__version__ = "1.0.4.beta0"
 # Default version of PyInstaller. Can be set to a specific value if PyDeployment
 # breaks using a future version
 PYI_VERSION = None
