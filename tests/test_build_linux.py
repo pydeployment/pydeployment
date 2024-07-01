@@ -36,6 +36,18 @@ def test_build_linux_get_appimagetool(build_linux: BuildLinux) -> None:
 
 @mark.order(5)
 @linux
+def test_build_linux_get_appimage_runtime(build_linux: BuildLinux) -> None:
+    """
+    Test `_get_appimage_runtime` method
+
+    :param build_linux: Instance of BuildLinux
+    :type build_linux: pydeployment.build.BuildLinux
+    """
+    assert exists(build_linux._get_appimage_runtime())
+
+
+@mark.order(5)
+@linux
 def test_build_linux_make_desktop_file(
         build_linux: BuildLinux,
         tmp_file: Callable[[str, Optional[str]], Tuple[str, Optional[str]]]

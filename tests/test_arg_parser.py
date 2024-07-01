@@ -45,6 +45,7 @@ from . import ArgParser
         ("0", "TARGET", N(**{"TARGET": ["0"]})),
         ("--appdata 0", "APPDATA", N(**{"APPDATA": "0"})),
         ("--appimagetool 0", "APPIMAGETOOL", N(**{"APPIMAGETOOL": "0"})),
+        ("--runtime-file 0", "RUNTIME_FILE", N(**{"RUNTIME_FILE": "0"})),
         ("-E 0", "ENTI", N(**{"ENTI": "0"})),
         ("--enti 0", "ENTI", N(**{"ENTI": "0"})),
         ("--entitlements 0", "ENTI", N(**{"ENTI": "0"})),

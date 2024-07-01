@@ -179,6 +179,13 @@ class ArgParser(ArgumentParser):
             dest="APPIMAGETOOL",
             default=None
         )
+        self.add_argument(
+            "--runtime-file",
+            action="store",
+            help="Path to AppImage runtime",
+            dest="RUNTIME_FILE",
+            default=None
+        )
 
     def _add_macos_args(self) -> None:
         """
