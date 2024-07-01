@@ -27,6 +27,8 @@ class BuildLinux(Build):
             self.config.ICON = join(self.dir, "default.png")
         if not self.is_set("APPIMAGETOOL"):
             self.config.APPIMAGETOOL = self._get_appimagetool()
+        if not self.is_set("RUNTIME_FILE"):
+            self.config.RUNTIME_FILE = self._get_appimage_runtime()
 
     def _get_appimagetool(self) -> str:
         """
@@ -37,6 +39,16 @@ class BuildLinux(Build):
         """
         tool = f"appimagetool-{self.arch}.AppImage"
         return join(self.dir, "appimagetool", tool)
+
+    def _get_appimage_runtime(self) -> str:
+        """
+        Get AppImage runtime
+
+        :return: Path to AppImage runtime
+        :rtype: str
+        """
+        runtime = f"runtime-{self.arch}"
+        return join(self.dir, "appimagetool", runtime)
 
     def _make_desktop_file(self, appdir: str, apprun: str) -> int:
         """
@@ -134,13 +146,17 @@ class BuildLinux(Build):
         package = f"{self.package}.AppImage"
         appname = package.removesuffix(f"-{self.arch}.AppImage")
         verbose = "-v" if self.config.LOG == "DEBUG" else ""
+        if self.config.RUNTIME_FILE:
+            runtime = f"--runtime-file {self.config.RUNTIME_FILE}"
+        else:
+            runtime = ""
         # Set environment
         env = {
             "APPIMAGETOOL_APP_NAME": appname,
             "ARCH": self.arch
         }
         self.run_command(
-            f"{self.config.APPIMAGETOOL} {verbose} {appdir}",
+            f"{self.config.APPIMAGETOOL} {verbose} {runtime} {appdir}",
             self.logger.debug, env=env
         )
         self.logger.debug(f"Packaged app: {package}")
