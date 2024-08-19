@@ -4,6 +4,15 @@ Version history.
 
 ---
 
+## Version 1.1.1
+* ci: Update requirements_pytest.txt by @zevlee in [#39](https://github.com/pydeployment/pydeployment/pull/39)
+* ci: Update requirements_pytest.txt by @zevlee in [#40](https://github.com/pydeployment/pydeployment/pull/40)
+* chore: Add CODEOWNERS file by @zevlee in [#41](https://github.com/pydeployment/pydeployment/pull/41)
+* chore: Update appimagetool by @zevlee in [#44](https://github.com/pydeployment/pydeployment/pull/44)
+* feat: Increment version for release v1.1.1 by @zevlee in [#45](https://github.com/pydeployment/pydeployment/pull/45)
+
+**Full Changelog**: [`v1.1.0...v1.1.1`](https://github.com/pydeployment/pydeployment/compare/v1.1.0...v1.1.1)
+
 ## Version 1.1.0
 * docs: Add release notes for v1.0.4 by @zevlee in [#35](https://github.com/pydeployment/pydeployment/pull/35)
 * Local appimage runtime by @zevlee in [#36](https://github.com/pydeployment/pydeployment/pull/36)
