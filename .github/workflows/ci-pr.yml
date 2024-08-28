@@ -12,5 +12,5 @@ jobs:
     name: CI
     uses: ./.github/workflows/ci.yml
     with:
-      repo: ${{ github.event.workflow_run.head_repository.name }}
+      repo: ${{ github.event.workflow_run.head_repository.full_name }}
       ref: ${{ github.event.workflow_run.head_sha }}
