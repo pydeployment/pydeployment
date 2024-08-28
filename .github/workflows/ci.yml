@@ -18,6 +18,7 @@ jobs:
   ci-macos:
     name: CI for macOS
     uses: ./.github/workflows/ci-macos.yml
+    secrets: inherit
 
   ci-windows:
     name: CI for Windows
