@@ -1,20 +1,6 @@
 name: CI for macOS
 
-on:
-  push:
-    branches:
-      - 'main'
-    paths:
-      - 'src/**'
-      - 'requirements.txt'
-      - 'requirements_pytest.txt'
-  pull_request:
-    branches:
-      - '**'
-    paths:
-      - 'src/**'
-      - 'requirements.txt'
-      - 'requirements_pytest.txt'
+on: workflow_call
 
 jobs:
   test:
