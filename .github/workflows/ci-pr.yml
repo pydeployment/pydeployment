@@ -1,0 +1,16 @@
+# This is a workflow to trigger the CI whenever the dummy workflow Pull Request
+# is triggered
+name: CI for Pull Request
+
+on:
+  workflow_run:
+    workflows:
+      - 'Pull Request'
+
+jobs:
+  ci:
+    name: CI
+    uses: ./.github/workflows/ci.yml
+    with:
+      repo: ${{ workflow_run.head_repository }}
+      ref: ${{ workflow_run.head_sha }}
