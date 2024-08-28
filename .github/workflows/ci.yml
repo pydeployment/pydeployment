@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  workflow_call:
+  pull_request:
+    branches:
+      - '**'
+    paths:
+      - 'src/**'
+      - 'requirements.txt'
+      - 'requirements_pytest.txt'
+
+jobs:
+  # Call CI for Linux
+  ci-linux:
+    uses: .github/workflows/ci-linux.yml@main
+  # Call CI for macOS
+  ci-macos:
+    uses: .github/workflows/ci-macos.yml@main
+  # Call CI for Windows
+  ci-windows:
+    uses: .github/workflows/ci-windows.yml@main
