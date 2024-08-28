@@ -4,6 +4,7 @@ on: workflow_call
 
 jobs:
   test:
+    name: Run Unit Tests
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
