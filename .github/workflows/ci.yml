@@ -11,12 +11,14 @@ on:
       - 'requirements_pytest.txt'
 
 jobs:
-  # Call CI for Linux
   ci-linux:
-    uses: .github/workflows/ci-linux.yml@main
-  # Call CI for macOS
+    name: CI for Linux
+    uses: ./.github/workflows/ci-linux.yml@main
+
   ci-macos:
-    uses: .github/workflows/ci-macos.yml@main
-  # Call CI for Windows
+    name: CI for macOS
+    uses: ./.github/workflows/ci-macos.yml@main
+
   ci-windows:
-    uses: .github/workflows/ci-windows.yml@main
+    name: CI for Windows
+    uses: ./.github/workflows/ci-windows.yml@main

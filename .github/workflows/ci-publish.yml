@@ -10,10 +10,11 @@ on:
       - 'src/**'
 
 jobs:
-  # Call CI
   ci:
-    uses: .github/workflows/ci.yml@main
-  # Call Publish Python distribution to PyPI and TestPyPI
+    name: CI
+    uses: ./.github/workflows/ci.yml@main
+
   publish:
+    name: Publish Python distribution to PyPI and TestPyPI
     needs: ci
-    uses: .github/workflows/publish.yml@main
+    uses: ./.github/workflows/publish.yml@main
