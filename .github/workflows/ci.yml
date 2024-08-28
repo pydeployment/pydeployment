@@ -13,12 +13,12 @@ on:
 jobs:
   ci-linux:
     name: CI for Linux
-    uses: ./.github/workflows/ci-linux.yml@main
+    uses: ./.github/workflows/ci-linux.yml
 
   ci-macos:
     name: CI for macOS
-    uses: ./.github/workflows/ci-macos.yml@main
+    uses: ./.github/workflows/ci-macos.yml
 
   ci-windows:
     name: CI for Windows
-    uses: ./.github/workflows/ci-windows.yml@main
+    uses: ./.github/workflows/ci-windows.yml
