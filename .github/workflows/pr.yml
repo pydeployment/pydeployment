@@ -1,0 +1,22 @@
+# This is a dummy workflow that is triggered upon the creation of a pull
+# request. The workflow serves as a trigger for the CI workflow, which should
+# be in scope of the main repository and thus have access to the repository's
+# secrets, which are necessary for testing.
+name: Pull Request
+
+on:
+  pull_request:
+    branches:
+      - '**'
+    paths:
+      - 'src/**'
+      - 'requirements.txt'
+      - 'requirements_pytest.txt'
+
+jobs:
+  dummy-workflow:
+    name: Dummy Workflow
+    runs-on: ubuntu-latest
+    steps:
+      - name: Explanation
+        run: echo "This is a dummy workflow to trigger the CI workflow"
