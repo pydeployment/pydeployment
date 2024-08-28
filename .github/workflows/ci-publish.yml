@@ -17,4 +17,7 @@ jobs:
   publish:
     name: Publish Python distribution to PyPI and TestPyPI
     needs: ci
+    permissions:
+      contents: write
+      id-token: write
     uses: ./.github/workflows/publish.yml
