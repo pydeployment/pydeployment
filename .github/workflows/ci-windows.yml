@@ -1,14 +1,6 @@
 name: CI for Windows
 
-on:
-  workflow_call:
-    inputs:
-      repo:
-        required: false
-        type: string
-      ref:
-        required: false
-        type: string
+on: workflow_call
 
 jobs:
   test:
@@ -22,9 +14,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          repository: ${{ inputs.repo }}
-          ref: ${{ inputs.ref }}
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
         with:
