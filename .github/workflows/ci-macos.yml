@@ -1,14 +1,6 @@
 name: CI for macOS
 
-on:
-  workflow_call:
-    inputs:
-      repo:
-        required: false
-        type: string
-      ref:
-        required: false
-        type: string
+on: workflow_call
 
 jobs:
   test:
@@ -22,9 +14,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          repository: ${{ inputs.repo }}
-          ref: ${{ inputs.ref }}
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
         with:
@@ -35,7 +24,7 @@ jobs:
           python3 -m pip install -r requirements_pytest.txt
           python3 -m pip install -e .
       - name: Set up notarization
-        # if: github.event_name == 'push'
+        if: github.event_name == 'push'
         env:
           MACOS_CERTIFICATE: ${{ secrets.MACOS_CERTIFICATE }}
           MACOS_CERTIFICATE_PWD: ${{ secrets.MACOS_CERTIFICATE_PWD }}

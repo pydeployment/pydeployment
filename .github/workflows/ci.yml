@@ -2,32 +2,23 @@ name: CI
 
 on:
   workflow_call:
-    inputs:
-      repo:
-        required: false
-        type: string
-      ref:
-        required: false
-        type: string
+  pull_request:
+    branches:
+      - '**'
+    paths:
+      - 'src/**'
+      - 'requirements.txt'
+      - 'requirements_pytest.txt'
 
 jobs:
   ci-linux:
     name: CI for Linux
     uses: ./.github/workflows/ci-linux.yml
-    with:
-      repo: ${{ inputs.repo }}
-      ref: ${{ inputs.ref }}
 
   ci-macos:
     name: CI for macOS
     uses: ./.github/workflows/ci-macos.yml
-    with:
-      repo: ${{ inputs.repo }}
-      ref: ${{ inputs.ref }}
 
   ci-windows:
     name: CI for Windows
     uses: ./.github/workflows/ci-windows.yml
-    with:
-      repo: ${{ inputs.repo }}
-      ref: ${{ inputs.ref }}
