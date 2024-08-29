@@ -1,4 +1,11 @@
-name: CI and Publish
+# Main workflow.
+#
+# Upon a push to the main branch, runs the CI test suite then the publishing
+# workflow.
+#
+# Run CI test suite → Build then Publish Python distribution
+#
+name: Publish
 
 on:
   push:
@@ -11,12 +18,12 @@ on:
 
 jobs:
   ci:
-    name: CI
+    name: Run CI test suite
     uses: ./.github/workflows/ci.yml
     secrets: inherit
 
   publish:
-    name: Publish Python distribution to PyPI and TestPyPI
+    name: Build then Publish Python distribution
     needs: ci
     permissions:
       contents: write

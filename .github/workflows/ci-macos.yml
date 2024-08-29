@@ -1,3 +1,7 @@
+# Test cases for macOS.
+#
+# Called by the main CI workflow.
+#
 name: CI for macOS
 
 on: workflow_call
