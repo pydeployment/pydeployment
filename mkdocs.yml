@@ -4,19 +4,45 @@ site_description: Deploy Python projects with ease.
 site_author: Zev Lee
 repo_url: https://github.com/pydeployment/pydeployment
 
+theme:
+  name: material
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+  features:
+    - navigation.instant
+
+plugins:
+  - section-index
+
 nav:
   - Home: index.md
   - User Guide:
-    - User Guide: user-guide/README.md
+    - user-guide/README.md
     - Getting Started: user-guide/getting-started.md
     - Build Options: user-guide/build-options.md
     - Setting Build Options:
-      - Setting Build Options: user-guide/setting-options/README.md
+      - user-guide/setting-options/README.md
       - Using an Environment File: user-guide/setting-options/env-file.md
       - Using the Command Line: user-guide/setting-options/command-line.md
       - Using Both: user-guide/setting-options/using-both.md
     - Advanced Usage:
-      - Advanced Usage: user-guide/advanced/README.md
+      - user-guide/advanced/README.md
       - Package as an Archive File: user-guide/advanced/archive-file.md
       - Using a Custom Virtual Environment: user-guide/advanced/custom-venv.md
       - Using a Custom NSIS File: user-guide/advanced/custom-nsis.md
