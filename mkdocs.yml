@@ -55,9 +55,6 @@ nav:
     - Contributing: about/contributing.md
     - License: about/license.md
 
-#extra_css:
-#  - css/extra.css
-
 extra:
   version:
     provider: mike
