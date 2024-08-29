@@ -1,4 +1,12 @@
-name: Publish Python distribution to PyPI and TestPyPI
+# Workflow to build then publish Python distribution.
+#
+# Non-tagged releases are published to TestPyPI while tagged ones are published
+# to PyPI then GitHub.
+#
+# Build → Publish to PyPI     → Create GitHub Release
+#       ↳ Publish to TestPyPI
+#
+name: Build then Publish Python distribution
 
 on: workflow_call
 
