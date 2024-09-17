@@ -302,8 +302,8 @@ class Build:
         except ShutilError as e:
             self.logger.error(e)
             return 1
-        return 0
         self.logger.debug(f"Package moved to {path}")
+        return 0
 
     def run(self) -> int:
         """
