@@ -336,6 +336,8 @@ class Build:
             package = self.make_app()
         else:
             package = self.make_arc()
+        if isinstance(package, int):
+            return package
         # Delete build artifacts
         if not self.config.NO_CLEAN:
             self._clean()

@@ -1,7 +1,7 @@
 from argparse import Namespace
 from glob import glob
 from os import makedirs, symlink
-from os.path import basename, join, relpath, splitext
+from os.path import basename, isdir, join, relpath, splitext
 from shutil import copy, make_archive, move
 from . import LINUX_DESKTOP_KEYS as KEYS
 from .build import Build
@@ -162,15 +162,21 @@ class BuildLinux(Build):
         self.logger.debug(f"Packaged app: {package}")
         return package
 
-    def make_app(self) -> str:
+    def make_app(self) -> str | int:
         """
         Make an AppImage
 
-        :return: Package filename
-        :rtype: str
+        :return: Package filename or return code
+        :rtype: str | int
         """
         self.run_pyinstaller(self.config.TARGET)
         appdir = glob(join("dist", "*"))[0]
+        if not isdir(appdir):
+            self.logger.error(
+                "PyInstaller appears to have created a one-file bundled "
+                "executable. Be sure to create a one-folder bundle instead."
+            )
+            return 1
         return self._make_app_from_appdir(appdir)
 
     def _make_arc_from_appdir(self, appdir: str) -> str:
