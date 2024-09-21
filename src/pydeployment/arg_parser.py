@@ -186,6 +186,13 @@ class ArgParser(ArgumentParser):
             dest="RUNTIME_FILE",
             default=None
         )
+        self.add_argument(
+            "--appimage-extract-and-run",
+            action="store_true",
+            help="Extract appimagetool at runtime for compatibility purposes",
+            dest="APPIMAGE_EXTRACT_AND_RUN",
+            default=None
+        )
 
     def _add_macos_args(self) -> None:
         """
