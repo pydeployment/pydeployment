@@ -58,3 +58,4 @@ options and how they are used.
 | `--appdata` | `APPDATA` | path | Path to AppStream metadata file. File name should be in the form: The value of `ID` + `'.appdata.xml'`. | None |
 | `--appimagetool` | `APPIMAGETOOL` | path | Path to appimagetool. See [Using a Custom Appimagetool Binary](advanced/custom-appimagetool.md). | Path to PyDeployment's included appimagetool `'appimagetool-*.AppImage'`, whichever one matches the architecture of the system. |
 | `--runtime-file` | `RUNTIME_FILE` | path | Path to AppImage runtime. See [Using a Custom Appimagetool Binary](advanced/custom-appimagetool.md). | Path to PyDeployment's included AppImage runtime `'runtime-*'`, whichever one matches the architecture of the system. |
+| `--appimage-extract-and-run` | `APPIMAGE_EXTRACT_AND_RUN` | boolean | Extract appimagetool at runtime for compatibility purposes. See [Using a Custom Appimagetool Binary](advanced/custom-appimagetool.md). | `False` |

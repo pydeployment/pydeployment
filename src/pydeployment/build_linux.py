@@ -141,22 +141,27 @@ class BuildLinux(Build):
         # Add appstream metadata
         if self.is_set("APPDATA"):
             self._add_appdata(appdir)
-        # Run appimagetool
+        # Prepare to run appimagetool
         self.logger.info("Running appimagetool")
         package = f"{self.package}.AppImage"
         appname = package.removesuffix(f"-{self.arch}.AppImage")
-        verbose = "-v" if self.config.LOG == "DEBUG" else ""
+        verbose = "-v " if self.config.LOG == "DEBUG" else ""
         if self.config.RUNTIME_FILE:
-            runtime = f"--runtime-file {self.config.RUNTIME_FILE}"
+            runtime = f"--runtime-file {self.config.RUNTIME_FILE} "
         else:
             runtime = ""
+        if self.config.APPIMAGE_EXTRACT_AND_RUN:
+            extract = "--appimage-extract-and-run "
+        else:
+            extract = ""
         # Set environment
         env = {
             "APPIMAGETOOL_APP_NAME": appname,
             "ARCH": self.arch
         }
+        # Run appimagetool
         self.run_command(
-            f"{self.config.APPIMAGETOOL} {verbose} {runtime} {appdir}",
+            f"{self.config.APPIMAGETOOL} {verbose}{runtime}{extract}{appdir}",
             self.logger.debug, env=env
         )
         self.logger.debug(f"Packaged app: {package}")
