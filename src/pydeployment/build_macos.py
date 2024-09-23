@@ -173,12 +173,12 @@ class BuildMacos(Build):
                 file.close()
         return 0
 
-    def make_app(self) -> str:
+    def make_app(self) -> str | int:
         """
         Make a DMG with an app bundle
 
-        :return: Package filename
-        :rtype: str
+        :return: Package filename or return code
+        :rtype: str | int
         """
         if self.config.MODE == "SPEC":
             basename_spec = basename(self.config.TARGET.removesuffix(".spec"))
@@ -212,7 +212,14 @@ class BuildMacos(Build):
                 ["--osx-bundle-identifier"], f"'{self.config.ID}'"
             )
             self.run_pyinstaller(self.config.TARGET)
-        appdir = glob(join("dist", "*.app"))[0]
+        try:
+            appdir = glob(join("dist", "*.app"))[0]
+        except IndexError:
+            self.logger.error(
+                "PyInstaller appears to have created a one-file bundled "
+                "executable. Be sure to create a one-folder bundle instead."
+            )
+            return 1
         return self._make_app_from_appdir(appdir)
 
     def _make_arc_from_appdir(self, appdir: str) -> str:
