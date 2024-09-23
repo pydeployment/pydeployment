@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         python-version: ['3.10', '3.11', '3.12']
-        os: ['windows-2019', 'windows-latest']
+        os: ['windows-2019', 'windows-2022']
       fail-fast: false
     steps:
       - name: Checkout
