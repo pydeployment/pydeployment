@@ -51,9 +51,9 @@ nav:
       - Using a Custom Appimagetool Binary: user-guide/advanced/custom-appimagetool.md
       - Passing Arguments to PyInstaller: user-guide/advanced/passing-args-to-pyi.md
   - About:
-    - Release Notes: about/release-notes.md
-    - Contributing: about/contributing.md
-    - License: about/license.md
+    - License: license.md
+    - Contributing: CONTRIBUTING.md
+    - Code of Conduct: CODE_OF_CONDUCT.md
 
 extra:
   version:
