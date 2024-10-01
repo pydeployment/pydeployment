@@ -12,7 +12,7 @@ features or other improvements.
 ## Code of Conduct
 
 All contributors and maintainers are expected to abide by the
-[PyPA Code of Conduct](https://www.pypa.io/en/latest/code-of-conduct/).
+[PSF Code of Conduct](https://policies.python.org/python.org/code-of-conduct/).
 
 ## Testing the Development Version
 
