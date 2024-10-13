@@ -1,2 +1,3 @@
 src/pydeployment/windows/NSISPortable/** linguist-vendored
 src/pydeployment/linux/appimagetool/* linguist-vendored
+requirements*.txt linguist-language=Pip-Requirements
