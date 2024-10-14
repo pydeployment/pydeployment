@@ -54,6 +54,7 @@ nav:
     - License: license.md
     - Contributing: CONTRIBUTING.md
     - Code of Conduct: CODE_OF_CONDUCT.md
+    - Security: SECURITY.md
 
 extra:
   version:

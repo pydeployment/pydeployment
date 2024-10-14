@@ -42,7 +42,7 @@ venv/bin/pytest tests/
 In order to test macOS notarization, you will need to create a file named
 `.env` in the project directory with the information necessary to notarize an
 application. See
-[macOS Notarization](../user-guide/advanced/macos-notarization.md) for details
+[macOS Notarization](user-guide/advanced/macos-notarization.md) for details
 on the necessary values.
 
 ```
