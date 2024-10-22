@@ -3,7 +3,9 @@ from os import environ
 from os.path import basename, exists
 from sys import argv
 from typing import Any, Dict
+
 from dotenv import dotenv_values
+
 from .arg_parser import ArgParser
 from .logger import logger
 

@@ -1,5 +1,6 @@
 from platform import system
 from sys import exit
+
 from .build_config import BuildConfig
 from .build_linux import BuildLinux
 from .build_macos import BuildMacos

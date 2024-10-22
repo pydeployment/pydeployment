@@ -4,7 +4,9 @@ from os.path import exists
 from platform import system
 from shutil import move
 from typing import Optional, Tuple
+
 from pytest import mark
+
 from . import BuildWindows
 
 windows = mark.skipif(system() != "Windows", reason="System does not match.")

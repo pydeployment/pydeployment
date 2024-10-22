@@ -1,5 +1,6 @@
 from argparse import ArgumentParser
 from typing import Optional
+
 from . import __version__
 
 

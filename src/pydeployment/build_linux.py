@@ -3,6 +3,7 @@ from glob import glob
 from os import makedirs, symlink
 from os.path import basename, isdir, join, relpath, splitext
 from shutil import copy, make_archive, move
+
 from . import LINUX_DESKTOP_KEYS as KEYS
 from .build import Build
 
