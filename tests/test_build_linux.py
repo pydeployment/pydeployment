@@ -3,7 +3,9 @@ from os.path import exists, join
 from platform import system
 from shutil import move
 from typing import Optional, Tuple
+
 from pytest import mark
+
 from . import BuildLinux
 
 linux = mark.skipif(system() != "Linux", reason="System does not match.")

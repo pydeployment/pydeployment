@@ -1,6 +1,8 @@
 from argparse import Namespace as N
+
 from pytest import mark, raises
 from _pytest.capture import CaptureFixture
+
 from . import ArgParser
 
 

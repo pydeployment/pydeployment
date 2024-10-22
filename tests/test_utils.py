@@ -2,6 +2,7 @@ from collections.abc import Callable
 from contextlib import nullcontext as does_not_raise
 from platform import python_compiler
 from typing import Iterator
+
 from pytest import mark, raises
 from _pytest.python_api import RaisesContext
 

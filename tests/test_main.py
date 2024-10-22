@@ -1,8 +1,10 @@
-from collections.abc import Callable
 from argparse import Namespace
+from collections.abc import Callable
 from platform import system
+
 from pytest import mark
 from _pytest.monkeypatch import MonkeyPatch
+
 from . import BuildConfig
 
 

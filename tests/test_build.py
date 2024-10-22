@@ -4,9 +4,11 @@ from os import mkdir
 from os.path import exists, join
 from platform import machine, python_compiler
 from typing import Optional, Tuple
+
 from pytest import mark, raises
 from _pytest.capture import CaptureFixture
 from _pytest.python_api import RaisesContext
+
 from . import Build
 
 
