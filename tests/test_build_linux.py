@@ -60,7 +60,8 @@ def test_build_linux_make_desktop_file(
     :param build_linux: Instance of BuildLinux
     :type build_linux: pydeployment.build.BuildLinux
     :param tmp_file: Temporary file function
-    :type tmp_file: Callable[[str, Optional[str]], Tuple[str, Optional[str]]]
+    :type tmp_file:
+        Callable[[str, Optional[str]], Tuple[str, Optional[str]]]
     """
     d, p = tmp_file(path="tmp")
     build_linux._make_desktop_file(d, p)
@@ -81,7 +82,8 @@ def test_build_linux_add_appdata(
     :param build_linux: Instance of BuildLinux
     :type build_linux: pydeployment.build.BuildLinux
     :param tmp_file: Temporary file function
-    :type tmp_file: Callable[[str, Optional[str]], Tuple[str, Optional[str]]]
+    :type tmp_file:
+        Callable[[str, Optional[str]], Tuple[str, Optional[str]]]
     """
     appdata = f"{build_linux.config.ID}.appdata.xml"
     d, p = tmp_file(path=appdata)
@@ -103,7 +105,8 @@ def test_build_linux_make_app_from_appdir(
     :param build_linux: Instance of BuildLinux
     :type build_linux: pydeployment.build.BuildLinux
     :param tmp_file: Temporary file function
-    :type tmp_file: Callable[[str, Optional[str]], Tuple[str, Optional[str]]]
+    :type tmp_file:
+        Callable[[str, Optional[str]], Tuple[str, Optional[str]]]
     """
     d, _ = tmp_file(dir_="test", path="test")
     package = build_linux._make_app_from_appdir(d)
@@ -136,7 +139,8 @@ def test_build_linux_make_arc_from_appdir(
     :param build_linux: Instance of BuildLinux
     :type build_linux: pydeployment.build.BuildLinux
     :param tmp_file: Temporary file function
-    :type tmp_file: Callable[[str, Optional[str]], Tuple[str, Optional[str]]]
+    :type tmp_file:
+        Callable[[str, Optional[str]], Tuple[str, Optional[str]]]
     """
     d, _ = tmp_file(dir_="test", path="test")
     package = build_linux._make_arc_from_appdir(d)

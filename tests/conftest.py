@@ -16,7 +16,8 @@ from . import *
 @fixture(autouse=True)
 def change_test_dir(tmp_path: PosixPath, monkeypatch: MonkeyPatch) -> None:
     """
-    Fixture to change the current working directory to the test directory
+    Fixture to change the current working directory to the test
+    directory
 
     :param tmp_path: Temporary path
     :type tmp_path: pathlib.PosixPath
@@ -126,7 +127,8 @@ def config(
     :param build_config: Instance of BuildConfig for the system OS
     :type build_config: pydeployment.build_config.BuildConfig
     :param tmp_file: Temporary file function
-    :type tmp_file: Callable[[str, Optional[str]], Tuple[str, Optional[str]]]
+    :type tmp_file:
+        Callable[[str, Optional[str]], Tuple[str, Optional[str]]]
     :return: Test configuration
     :rtype: argparse.Namespace
     """
@@ -149,7 +151,8 @@ def config(
 @fixture
 def py() -> str:
     """
-    Fixture for the path to the python executable within a virtual environment
+    Fixture for the path to the python executable within a virtual
+    environment
 
     :return: Relative path to python executable
     :rtype: str
@@ -212,8 +215,8 @@ def build_windows(config: Namespace) -> BuildWindows:
 @fixture
 def mock_build_config() -> BuildConfig:
     """
-    Fixture for the BuildConfig class to be used for mocking the `get_config`
-    method
+    Fixture for the BuildConfig class to be used for mocking the
+    `get_config` method
 
     :return: BuildConfig class
     :rtype: pydeployment.build_config.BuildConfig

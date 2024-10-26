@@ -5,9 +5,9 @@ from subprocess import CalledProcessError, PIPE, Popen
 from typing import Any, Dict, Iterator
 
 # PyDeployment version
-__version__ = "1.2.3.beta0"
-# Default version of PyInstaller. Can be set to a specific value if PyDeployment
-# breaks using a future version
+__version__ = "1.2.3.beta1"
+# Default version of PyInstaller. Can be set to a specific value if
+# PyDeployment breaks using a future version
 PYI_VERSION = None
 # Python executable path
 if python_compiler()[:3] == "MSC":

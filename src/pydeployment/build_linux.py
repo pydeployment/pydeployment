@@ -53,8 +53,8 @@ class BuildLinux(Build):
 
     def _make_desktop_file(self, appdir: str, apprun: str) -> int:
         """
-        Make a desktop file at destination `appdir` including all environment
-        variables from `KEYS` which are set
+        Make a desktop file at destination `appdir` including all
+        environment variables from `KEYS` which are set
 
         :param appdir: Path to app directory
         :type appdir: str

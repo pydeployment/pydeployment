@@ -71,10 +71,10 @@ class Build:
 
     def validate_pyi_arg(self, opts: List[str], arg: str) -> int:
         """
-        Check if the PyInstaller arguments string contains any of the options
-        in `opts` and if not then add the first option and `arg` to the
-        end of the arguments string but before `--` as this option is used to
-        parse spec file arguments
+        Check if the PyInstaller arguments string contains any of the
+        options in `opts` and if not then add the first option and `arg`
+        to the end of the arguments string but before `--` as this
+        option is used to parse spec file arguments
 
         :param opts: Options to check
         :type opts: List[str]
@@ -133,7 +133,8 @@ class Build:
         :type cmd: str
         :param method: Logger method
         :type method: Callable[[str], None]
-        :param kwargs: Keyword arguments to pass to `run_command` function
+        :param kwargs: Keyword arguments to pass to `run_command`
+            function
         :type kwargs: Dict[str, Any]
         :return: Command output
         :rtype: str

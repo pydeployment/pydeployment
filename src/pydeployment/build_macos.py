@@ -151,9 +151,9 @@ class BuildMacos(Build):
 
     def _sub(self, pattern: str, repl: str, path: str) -> int:
         """
-        Replace all text matching everything after `pattern` but before a
-        comma, close parenthesis, or new line with `repl` for the file at
-        `path`
+        Replace all text matching everything after `pattern` but before
+        a comma, close parenthesis, or new line with `repl` for the file
+        at `path`
 
         :param pattern: Pattern to match
         :type pattern: str
@@ -165,8 +165,8 @@ class BuildMacos(Build):
         :rtype: int
         """
         contents = open(path, "r").read()
-        # Matches string between `pattern` at the beginning and anything but a
-        # comma or close parenthesis at the end
+        # Matches string between `pattern` at the beginning and anything
+        # but a comma or close parenthesis at the end
         expr = f"(?<={pattern})(.*)(?<![,)])"
         if contents != sub(expr, repl, contents):
             with open(path, "w") as file:
