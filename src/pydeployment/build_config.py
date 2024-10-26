@@ -26,22 +26,24 @@ class BuildConfig:
 
     def _is_set(self, key: str, dict_: Dict[str, Any]) -> bool:
         """
-        Check if a key `key` in the dictionary `dict_` exists and is not empty
+        Check if a key `key` in the dictionary `dict_` exists and is
+        not empty
 
         :param key: Key to check
         :type key: str
         :param dict_: Dictionary in which to check the key
         :type dict_: Dict[str, Any]
-        :return: True if a value in the dictionary exists and is not empty
+        :return: True if a value in the dictionary exists and is not
+            empty
         :rtype: bool
         """
         return not (key not in dict_.keys() or not dict_[key])
 
     def _get_config_from_env(self) -> Dict[str, Any]:
         """
-        Get configuration from the environment file, either .env in the current
-        working directory or the path specified in the `ENV_FILE` environment
-        variable
+        Get configuration from the environment file, either .env in the
+        current working directory or the path specified in the
+        `ENV_FILE` environment variable
 
         :return: Variables from environment file
         :rtype: Dict[str, Any]
@@ -58,9 +60,9 @@ class BuildConfig:
 
     def _get_config_from_argv(self) -> Dict[str, Any]:
         """
-        Get configuration from command line arguments. Any parameters beyond
-        the `--` marker are for PyInstaller to handle and are mapped to
-        the `PYI_ARGS` key
+        Get configuration from command line arguments. Any parameters
+        beyond the `--` marker are for PyInstaller to handle and are
+        mapped to the `PYI_ARGS` key
 
         :return: Variables from command line
         :rtype: Dict[str, Any]
@@ -102,8 +104,8 @@ class BuildConfig:
 
     def _handle_target(self, config: Dict[str, Any]) -> int:
         """
-        Handle the target file by making the first argument the target and the
-        rest as PyInstaller arguments
+        Handle the target file by making the first argument the target
+        and the rest as PyInstaller arguments
 
         :param config: Configuration dictionary
         :type config: Dict[str, Any]
@@ -119,7 +121,8 @@ class BuildConfig:
 
     def _handle_defaults(self, config: Dict[str, Any]) -> int:
         """
-        Assign default values to config parameters based on the spec file
+        Assign default values to config parameters based on the spec
+        file
 
         :param config: Configuration dictionary
         :type config: Dict[str, Any]
@@ -153,8 +156,8 @@ class BuildConfig:
 
     def get_config(self, skip_validation: bool=False) -> Namespace | int:
         """
-        Get the build configuration from various sources in order of increasing
-        precedence:
+        Get the build configuration from various sources in order of
+        increasing precedence:
 
         1. The environment file
         2. Command line arguments

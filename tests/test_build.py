@@ -97,7 +97,8 @@ def test_build_calc_dir_size(
     :param build: Instance of Build
     :type build: pydeployment.build.Build
     :param tmp_file: Temporary file function
-    :type tmp_file: Callable[[str, Optional[str]], Tuple[str, Optional[str]]]
+    :type tmp_file:
+        Callable[[str, Optional[str]], Tuple[str, Optional[str]]]
     """
     d, _ = tmp_file()
     assert isinstance(build.calc_dir_size(d), int)
@@ -127,7 +128,8 @@ def test_build_run_command(
     :param output: Expected output
     :type output: str
     :param exception: Expected exception context
-    :type exception: contextlib.nullcontext | _pytest.python_api.RaisesContext
+    :type exception:
+        contextlib.nullcontext | _pytest.python_api.RaisesContext
     """
     if command and python_compiler()[:3] == "MSC":
         command = f"cmd /c {command}"
@@ -147,7 +149,8 @@ def test_build_run_pyinstaller(
     :param build: Instance of Build
     :type build: pydeployment.build.Build
     :param tmp_file: Temporary file function
-    :type tmp_file: Callable[[str, Optional[str]], Tuple[str, Optional[str]]]
+    :type tmp_file:
+        Callable[[str, Optional[str]], Tuple[str, Optional[str]]]
     :param capfd: Capture fixture
     :type capfd: _pytest.capture.CaptureFixture
     """
@@ -170,7 +173,8 @@ def test_build_validate_paths(
     :param build: Instance of Build
     :type build: pydeployment.build.Build
     :param tmp_file: Temporary file function
-    :type tmp_file: Callable[[str, Optional[str]], Tuple[str, Optional[str]]]
+    :type tmp_file:
+        Callable[[str, Optional[str]], Tuple[str, Optional[str]]]
     """
     _, p = tmp_file(path="tmp.txt")
     build.LICENSE = p
@@ -213,7 +217,8 @@ def test_build_set_up_venv(
     :param build: Instance of Build
     :type build: pydeployment.build.Build
     :param tmp_file: Temporary file function
-    :type tmp_file: Callable[[str, Optional[str]], Tuple[str, Optional[str]]]
+    :type tmp_file:
+        Callable[[str, Optional[str]], Tuple[str, Optional[str]]]
     :param py: Relative path to python executable
     :type py: str
     """
@@ -246,7 +251,8 @@ def test_build_move_app(
     :param build: Instance of Build
     :type build: pydeployment.build.Build
     :param tmp_file: Temporary file function
-    :type tmp_file: Callable[[str, Optional[str]], Tuple[str, Optional[str]]]
+    :type tmp_file:
+        Callable[[str, Optional[str]], Tuple[str, Optional[str]]]
     """
     _, p = tmp_file(path="tmp.txt")
     assert build._move_app(p) == 0
