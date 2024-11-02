@@ -7,4 +7,4 @@
 <!-- Describe the purpose of the PR and what it accomplishes -->
 
 **Checklist**
-- [ ] Commit message follows the [Conventional Commit](https://www.conventionalcommits.org/) specification
+- [ ] All commit messages follow the [Conventional Commit](https://www.conventionalcommits.org/) specification
