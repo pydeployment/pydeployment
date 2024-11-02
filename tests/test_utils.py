@@ -31,8 +31,8 @@ def test_run_command(
     :param output: Expected output
     :type output: str
     :param exception: Expected exception context
-    :type exception:
-        contextlib.nullcontext | _pytest.python_api.RaisesContext
+    :type exception: contextlib.nullcontext
+        | _pytest.python_api.RaisesContext
     """
     if command and python_compiler()[:3] == "MSC":
         command = f"cmd /c {command}"

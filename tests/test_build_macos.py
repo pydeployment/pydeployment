@@ -43,8 +43,8 @@ def test_build_macos_notarize_app(
     :param build_config: Instance of BuildConfig for the system OS
     :type build_config: pydeployment.build_config.BuildConfig
     :param tmp_file: Temporary file function
-    :type tmp_file:
-        Callable[[str, Optional[str]], Tuple[str, Optional[str]]]
+    :type tmp_file: Callable[[str, Optional[str]], Tuple[str,
+        Optional[str]]]
     """
     _, p = tmp_file(path="tmp.py")
     build_macos._set_up_venv()
@@ -71,8 +71,8 @@ def test_build_macos_build_dmg(
     :param build_macos: Instance of BuildMacos
     :type build_macos: pydeployment.build.BuildMacos
     :param tmp_file: Temporary file function
-    :type tmp_file:
-        Callable[[str, Optional[str]], Tuple[str, Optional[str]]]
+    :type tmp_file: Callable[[str, Optional[str]], Tuple[str,
+        Optional[str]]]
     """
     # Create build directory for this test
     mkdir("build")
@@ -96,8 +96,8 @@ def test_build_macos_make_app_from_appdir(
     :param monkeypatch: Monkeypatch fixture
     :type monkeypatch: _pytest.monkeypatch.MonkeyPatch
     :param tmp_file: Temporary file function
-    :type tmp_file:
-        Callable[[str, Optional[str]], Tuple[str, Optional[str]]]
+    :type tmp_file: Callable[[str, Optional[str]], Tuple[str,
+        Optional[str]]]
     """
     with monkeypatch.context() as m:
         # Delete `CERT` attribute to skip notarization step
@@ -121,8 +121,8 @@ def test_build_macos_sub(
     :param build_macos: Instance of BuildMacos
     :type build_macos: pydeployment.build.BuildMacos
     :param tmp_file: Temporary file function
-    :type tmp_file:
-        Callable[[str, Optional[str]], Tuple[str, Optional[str]]]
+    :type tmp_file: Callable[[str, Optional[str]], Tuple[str,
+        Optional[str]]]
     """
     _, p = tmp_file(path="test.txt")
     def contents(p: str) -> str:
@@ -170,8 +170,8 @@ def test_build_macos_make_arc_from_appdir(
     :param build_macos: Instance of BuildMacos
     :type build_macos: pydeployment.build.BuildMacos
     :param tmp_file: Temporary file function
-    :type tmp_file:
-        Callable[[str, Optional[str]], Tuple[str, Optional[str]]]
+    :type tmp_file: Callable[[str, Optional[str]], Tuple[str,
+        Optional[str]]]
     """
     d, _ = tmp_file(dir_="test", path="test")
     package = build_macos._make_arc_from_appdir(d)

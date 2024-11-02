@@ -127,8 +127,8 @@ def config(
     :param build_config: Instance of BuildConfig for the system OS
     :type build_config: pydeployment.build_config.BuildConfig
     :param tmp_file: Temporary file function
-    :type tmp_file:
-        Callable[[str, Optional[str]], Tuple[str, Optional[str]]]
+    :type tmp_file: Callable[[str, Optional[str]], Tuple[str,
+        Optional[str]]]
     :return: Test configuration
     :rtype: argparse.Namespace
     """

@@ -49,8 +49,8 @@ def test_build_windows_make_app_from_appdir(
     :param build_windows: Instance of BuildWindows
     :type build_windows: pydeployment.build.BuildWindows
     :param tmp_file: Temporary file function
-    :type tmp_file:
-        Callable[[str, Optional[str]], Tuple[str, Optional[str]]]
+    :type tmp_file: Callable[[str, Optional[str]], Tuple[str,
+        Optional[str]]]
     """
     # Create build directory for this test
     mkdir("build")
@@ -85,8 +85,8 @@ def test_build_windows_make_arc_from_appdir(
     :param build_windows: Instance of BuildWindows
     :type build_windows: pydeployment.build.BuildWindows
     :param tmp_file: Temporary file function
-    :type tmp_file:
-        Callable[[str, Optional[str]], Tuple[str, Optional[str]]]
+    :type tmp_file: Callable[[str, Optional[str]], Tuple[str,
+        Optional[str]]]
     """
     d, _ = tmp_file(dir_="test", path="test")
     package = build_windows._make_arc_from_appdir(d)
