@@ -1,10 +1,12 @@
 # Test cases for Linux.
 #
-# Called by the main CI workflow.
+# Called by the main CI workflow. Can also be called individually.
 #
 name: CI for Linux
 
-on: workflow_call
+on:
+  workflow_dispatch:
+  workflow_call:
 
 jobs:
   test:
