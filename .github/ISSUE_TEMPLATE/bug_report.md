@@ -21,10 +21,10 @@ Steps to reproduce the behavior:
 A clear and concise description of what you expected to happen.
 
 **System Information (please complete the following information):**
- - OS: [e.g. Fedora Workstation]
- - Version [e.g. 40]
-- Python Version [e.g. 3.12]
-- PyDeployment Version [e.g. 1.2.1]
+- OS: [e.g. Fedora Workstation]
+- Version: [e.g. 40]
+- Python Version: [e.g. 3.12]
+- PyDeployment Version: [e.g. 1.2.1]
 
 **Log Information**
 Paste the output of PyDeployment below
