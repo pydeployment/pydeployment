@@ -5,7 +5,7 @@ from subprocess import CalledProcessError, PIPE, Popen
 from typing import Any, Dict, Iterator
 
 # PyDeployment version
-__version__ = "1.2.4"
+__version__ = "1.3.0.beta0"
 # Default version of PyInstaller. Can be set to a specific value if
 # PyDeployment breaks using a future version
 PYI_VERSION = None
@@ -27,9 +27,8 @@ DISPLAY_ORDER = (
     "NO_CONFIRM", "NO_CLEAN", "ARCHIVE", "FILENAME", "APPNAME", "ID",
     "VERSION", "AUTHOR", "PUBLISHER", "DESCRIPTION", "PYI_VERSION", "ICON",
     "LICENSE", "OUTDIR", "REQUIREMENTS", "VENV", "APPDATA", "APPIMAGETOOL",
-    "RUNTIME_FILE", "APPIMAGE_EXTRACT_AND_RUN", *LINUX_DESKTOP_KEYS, "ENTI",
-    "CERT", "KEYC", "APID", "TMID", "PASS", "NSIS", "MAKENSIS", "TARGET",
-    "PYI_ARGS"
+    "RUNTIME_FILE", *LINUX_DESKTOP_KEYS, "ENTI", "CERT", "KEYC", "APID",
+    "TMID", "PASS", "NSIS", "MAKENSIS", "TARGET", "PYI_ARGS"
 )
 
 

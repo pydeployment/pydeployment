@@ -151,18 +151,15 @@ class BuildLinux(Build):
             runtime = f"--runtime-file {self.config.RUNTIME_FILE} "
         else:
             runtime = ""
-        if self.config.APPIMAGE_EXTRACT_AND_RUN:
-            extract = "--appimage-extract-and-run "
-        else:
-            extract = ""
         # Set environment
         env = {
+            "APPIMAGE_EXTRACT_AND_RUN": "1",
             "APPIMAGETOOL_APP_NAME": appname,
             "ARCH": self.arch
         }
         # Run appimagetool
         self.run_command(
-            f"{self.config.APPIMAGETOOL} {verbose}{runtime}{extract}{appdir}",
+            f"{self.config.APPIMAGETOOL} {verbose}{runtime}{appdir}",
             self.logger.debug, env=env
         )
         self.logger.debug(f"Packaged app: {package}")
