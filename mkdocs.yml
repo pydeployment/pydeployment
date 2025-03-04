@@ -1,5 +1,5 @@
 site_name: PyDeployment
-site_url: https://pydeployment.github.io/pydeployment
+site_url: https://pydeployment.github.io
 site_description: Deploy Python projects with ease.
 site_author: Zev Lee
 repo_url: https://github.com/pydeployment/pydeployment
