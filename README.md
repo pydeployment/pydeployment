@@ -32,7 +32,7 @@ pydeploy myapp.py
 
 ## Documentation
 Documentation for using PyDeployment can be found on the project
-[website](https://pydeployment.github.io/pydeployment).
+[website](https://pydeployment.github.io/).
 
 ## Examples
 The following examples showcase build systems which utilize PyDeployment to build
