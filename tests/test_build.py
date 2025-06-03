@@ -7,7 +7,7 @@ from typing import Optional, Tuple
 
 from pytest import mark, raises
 from _pytest.capture import CaptureFixture
-from _pytest.python_api import RaisesContext
+from _pytest.raises import RaisesExc
 
 from . import Build
 
@@ -116,7 +116,7 @@ def test_build_run_command(
         build: Build,
         command: str,
         output: str,
-        exception: does_not_raise | RaisesContext
+        exception: does_not_raise | RaisesExc
     ) -> None:
     """
     Test `run_command` method
@@ -128,8 +128,7 @@ def test_build_run_command(
     :param output: Expected output
     :type output: str
     :param exception: Expected exception context
-    :type exception: contextlib.nullcontext
-        | _pytest.python_api.RaisesContext
+    :type exception: contextlib.nullcontext | _pytest.raises.RaisesExc
     """
     if command and python_compiler()[:3] == "MSC":
         command = f"cmd /c {command}"
