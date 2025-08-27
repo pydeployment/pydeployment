@@ -19,13 +19,11 @@ on:
 jobs:
   ci:
     name: Run CI test suite
-    if: ${{ !startsWith(github.ref, 'refs/tags/') }}
     uses: ./.github/workflows/ci.yml
     secrets: inherit
 
   publish:
     name: Build then Publish Python distribution
-    if: ${{ always() }}
     needs: ci
     permissions:
       contents: write
