@@ -1,4 +1,4 @@
 mkdocs==1.6.1
 mike==2.1.4
 mkdocs-section-index==0.3.11
-mkdocs-material==9.7.5
+mkdocs-material==9.7.6
