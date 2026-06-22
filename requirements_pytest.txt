@@ -1,2 +1,2 @@
-pytest==9.1.0
+pytest==9.1.1
 pytest-order==1.5.0
