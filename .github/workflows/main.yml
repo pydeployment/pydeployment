@@ -3,7 +3,8 @@
 # Upon a push to the main branch, runs the CI test suite then the publishing
 # workflow. Skips the CI test suite if publishing to PyPI.
 #
-# Run CI test suite → Build then Publish Python distribution
+# Run CI test suite → Build → Publish to PyPI     → Create GitHub Release
+#                           ↳ Publish to TestPyPI
 #
 name: Publish
 
@@ -19,13 +20,106 @@ on:
 jobs:
   ci:
     name: Run CI test suite
+    if: ${{ !startsWith(github.ref, 'refs/tags/') }}
     uses: ./.github/workflows/ci.yml
     secrets: inherit
 
-  publish:
-    name: Build then Publish Python distribution
-    needs: ci
+  build:
+    name: Build distribution
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.x'
+      - name: Build a binary wheel and a source tarball
+        run: |
+          python3 build_pydeployment.py
+      - name: Store the distribution packages
+        uses: actions/upload-artifact@v7
+        with:
+          name: python-package-distributions
+          path: dist/
+
+  publish-to-pypi:
+    name: Publish Python distribution to PyPI
+    if: startsWith(github.ref, 'refs/tags/')
+    needs:
+      - build
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/pydeployment
+    permissions:
+      id-token: write
+    steps:
+      - name: Download all the dists
+        uses: actions/download-artifact@v8
+        with:
+          name: python-package-distributions
+          path: dist/
+      - name: Publish distribution to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          attestations: true
+
+  github-release:
+    name: Sign the Python distribution with Sigstore and upload to GitHub Release
+    needs:
+      - publish-to-pypi
+    runs-on: ubuntu-latest
     permissions:
       contents: write
       id-token: write
-    uses: ./.github/workflows/publish.yml
+    steps:
+      - name: Download all the dists
+        uses: actions/download-artifact@v8
+        with:
+          name: python-package-distributions
+          path: dist/
+      - name: Sign the dists with Sigstore
+        uses: sigstore/gh-action-sigstore-python@v3.5.0
+        with:
+          inputs: >-
+            ./dist/*.tar.gz
+            ./dist/*.whl
+      - name: Create GitHub Release
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: >-
+          gh release create
+          '${{ github.ref_name }}'
+          --repo '${{ github.repository }}'
+          --generate-notes
+      - name: Upload artifact signatures to GitHub Release
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: >-
+          gh release upload
+          '${{ github.ref_name }}' dist/**
+          --repo '${{ github.repository }}'
+
+  publish-to-testpypi:
+    name: Publish Python distribution to TestPyPI
+    if: ${{ !startsWith(github.ref, 'refs/tags/') }}
+    needs:
+      - build
+    runs-on: ubuntu-latest
+    environment:
+      name: testpypi
+      url: https://test.pypi.org/p/pydeployment
+    permissions:
+      id-token: write
+    steps:
+      - name: Download all the dists
+        uses: actions/download-artifact@v8
+        with:
+          name: python-package-distributions
+          path: dist/
+      - name: Publish distribution to TestPyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          repository-url: https://test.pypi.org/legacy/
+          attestations: true
