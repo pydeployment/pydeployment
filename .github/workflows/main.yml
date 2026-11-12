@@ -105,6 +105,7 @@ jobs:
     name: Publish Python distribution to TestPyPI
     if: ${{ !startsWith(github.ref, 'refs/tags/') }}
     needs:
+      - ci
       - build
     runs-on: ubuntu-latest
     environment:
