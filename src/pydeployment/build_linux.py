@@ -159,7 +159,8 @@ class BuildLinux(Build):
         }
         # Run appimagetool
         self.run_command(
-            f"{self.config.APPIMAGETOOL} {verbose}{runtime}{appdir}",
+            f"{self.config.APPIMAGETOOL} --no-check-permissions "
+            f"{verbose}{runtime}{appdir}",
             self.logger.debug, env=env
         )
         self.logger.debug(f"Packaged app: {package}")
