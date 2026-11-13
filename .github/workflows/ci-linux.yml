@@ -27,7 +27,6 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt update
-          sudo apt upgrade
           sudo apt install desktop-file-utils
           python3 -m pip install --upgrade pip
           python3 -m pip install -r requirements_pytest.txt
