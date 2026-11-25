@@ -26,6 +26,8 @@ jobs:
 
   build:
     name: Build distribution
+    needs: ci
+    if: ${{ !failure() && !cancelled() }}  # Run whether ci succeeds or is skipped
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
